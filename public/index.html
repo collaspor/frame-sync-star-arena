@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07151c">
+  <title>星际拾光 · 帧同步竞技场</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/client.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>SYNC<span class="brand-light">/</span>ARCADE</span></div>
+      <div class="topbar-right"><span class="live-dot"></span><span>实时双人对战</span><span class="topbar-divider"></span><span>20 FPS LOCKSTEP</span></div>
+    </header>
+
+    <main class="layout">
+      <section class="game-column" aria-label="游戏区域">
+        <div class="intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> 一场关于节奏的双人游戏 <span class="eyebrow-index">/ 001</span></div>
+          <h1>星际<span>拾光</span><span class="title-spark">✳</span></h1>
+          <p>同一帧，同一颗星。操纵你的飞船，抢先收集 <strong>7</strong> 颗能量星。</p>
+        </div>
+
+        <div class="scoreboard" aria-label="比分">
+          <div class="player-score player-one" id="player-0">
+            <div class="player-label"><span class="player-badge">01</span><span>薄荷舰队</span><span class="you-tag" id="you-0">你</span></div>
+            <div class="score-line"><strong id="score-0">0</strong><span> / 7</span></div>
+          </div>
+          <div class="versus"><span>VS</span><div class="versus-line"></div><span class="round-tag">ROUND 01</span></div>
+          <div class="player-score player-two" id="player-1">
+            <div class="player-label"><span class="you-tag" id="you-1">你</span><span>珊瑚舰队</span><span class="player-badge">02</span></div>
+            <div class="score-line"><strong id="score-1">0</strong><span> / 7</span></div>
+          </div>
+        </div>
+
+        <div class="arena-shell">
+          <div class="arena-top"><span><span class="corner-plus">+</span> 星域 / A-01</span><span id="timer">01:30</span></div>
+          <div class="arena-wrap">
+            <canvas id="arena" width="960" height="540" aria-label="双人拾星游戏画面"></canvas>
+            <div class="arena-overlay" id="overlay" role="status">
+              <span class="overlay-icon">✦</span>
+              <h2 id="overlay-title">正在连接星域</h2>
+              <p id="overlay-detail">正在建立帧同步连接…</p>
+            </div>
+          </div>
+          <div class="arena-bottom"><span><span class="signal"></span><span id="connection">连接中</span></span><span id="role">等待分配席位</span></div>
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="对局信息">
+        <div class="side-heading"><span>MISSION CONTROL</span><span>↗</span></div>
+        <section class="info-card mission-card">
+          <div class="card-number">01 / 任务简报</div>
+          <h2>追上光，<br>拿下这一局。</h2>
+          <p>两位玩家共用一片星域。抢先收集 7 颗星获胜；90 秒倒计时结束则比分高者获胜。</p>
+          <div class="control-key"><span>移动飞船</span><div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><em>或</em><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div></div>
+        </section>
+        <section class="info-card telemetry-card">
+          <div class="card-number">02 / 同步遥测</div>
+          <div class="telemetry-row"><span>当前帧</span><strong id="frame">0000</strong></div>
+          <div class="telemetry-row"><span>共享种子</span><strong id="seed">--------</strong></div>
+          <div class="telemetry-row"><span>状态校验</span><strong id="checksum">--------</strong></div>
+          <div class="sync-status" id="sync-status"><span class="sync-mark">●</span><span>等待开局</span></div>
+        </section>
+        <section class="invite-card">
+          <span class="invite-icon">↗</span>
+          <div><strong>邀请一位对手</strong><p>在另一个浏览器窗口打开同一地址，即可加入对局。</p></div>
+          <button type="button" id="copy-link">复制游戏链接 <span>↗</span></button>
+        </section>
+        <div class="sidebar-foot">ONE SEED · TWO PLAYERS · ZERO GUESSWORK</div>
+      </aside>
+    </main>
+    <footer class="footer"><span>SYNC / ARCADE © 2026</span><span>每一帧，都算数。</span></footer>
+  </div>
+</body>
+</html>
